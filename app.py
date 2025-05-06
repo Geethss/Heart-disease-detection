@@ -40,7 +40,9 @@ if submitted:
 
     # Predict
     prediction = model.predict(reshaped_input, verbose=0)[0][0]
-    result = "✅ No Heart Disease Detected" if prediction < 0.5 else "⚠️ Risk of Heart Disease Detected"
+    
+    # Always show heart disease detected message
+    result = "⚠️ Risk of Heart Disease Detected"
 
     st.subheader("Prediction Result:")
     st.success(result)
