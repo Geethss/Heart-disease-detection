@@ -29,8 +29,11 @@ with st.form("input_form"):
 
     submitted = st.form_submit_button("Predict")
 
-# Always show heart disease detected message upon form submission
+# Display result based on age
 if submitted:
-    st.subheader("Prediction Result:")
-    st.success("⚠️ Risk of Heart Disease Detected")
-
+    if age < 45:
+        st.subheader("Prediction Result:")
+        st.success("✅ No Risk of Heart Disease")
+    else:
+        st.subheader("Prediction Result:")
+        st.error("⚠️ Risk of Heart Disease Detected")
