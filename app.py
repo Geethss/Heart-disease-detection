@@ -29,21 +29,8 @@ with st.form("input_form"):
 
     submitted = st.form_submit_button("Predict")
 
-# Predict if form is submitted
+# Always show heart disease detected message upon form submission
 if submitted:
-    input_data = np.array([[age, sex, cp, trestbps, chol, fbs, restecg,
-                            thalach, exang, oldpeak, slope, ca, thal]], dtype=np.float32)
-
-    # Scale the data
-    scaled_features = scaler.transform(input_data)
-    reshaped_input = scaled_features.reshape((scaled_features.shape[0], scaled_features.shape[1], 1))
-
-    # Predict
-    prediction = model.predict(reshaped_input, verbose=0)[0][0]
-    
-    # Always show heart disease detected message
-    result = "⚠️ Risk of Heart Disease Detected"
-
     st.subheader("Prediction Result:")
-    st.success(result)
+    st.success("⚠️ Risk of Heart Disease Detected")
 
